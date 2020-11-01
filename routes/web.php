@@ -14,9 +14,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('blog.index');
 });
 
+
+Route::get('/blog', function () {
+    return view('blog.blog');
+});
+
+Route::get('/contact', function () {
+    return view('blog.contact');
+});
+
+
+Route::get('/about', function () {
+    return view('blog.about');
+});
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
