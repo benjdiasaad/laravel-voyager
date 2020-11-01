@@ -1,61 +1,100 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<p align="center"><a href="https://the-control-group.github.io/voyager/" target="_blank"><img width="400" src="https://s3.amazonaws.com/thecontrolgroup/voyager.png"></a></p>
 
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<a href="https://github.styleci.io/repos/72069409/"><img src="https://styleci.io/repos/72069409/shield?style=flat" alt="Build Status"></a>
+<a href="https://packagist.org/packages/tcg/voyager"><img src="https://poser.pugx.org/tcg/voyager/downloads.svg?format=flat" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/tcg/voyager"><img src="https://poser.pugx.org/tcg/voyager/v/stable.svg?format=flat" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/tcg/voyager"><img src="https://poser.pugx.org/tcg/voyager/license.svg?format=flat" alt="License"></a>
+<a href="https://github.com/larapack/awesome-voyager"><img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg" alt="Awesome Voyager"></a>
 </p>
 
-## About Laravel
+# **V**oyager - The Missing Laravel Admin
+Made with ❤️ by [The Control Group](https://www.thecontrolgroup.com)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+![Voyager Screenshot](https://s3.amazonaws.com/thecontrolgroup/voyager-screenshot.png)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Website & Documentation: https://voyager.devdojo.com/
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Video Tutorial Here: https://voyager.devdojo.com/academy/
 
-## Learning Laravel
+Join our Slack chat: https://voyager-slack-invitation.herokuapp.com/
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+View the Voyager Cheat Sheet: https://voyager-cheatsheet.ulties.com/
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<hr>
 
-## Laravel Sponsors
+Laravel Admin & BREAD System (Browse, Read, Edit, Add, & Delete), supporting Laravel 6 and newer!
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+> Want to use Laravel 5? Use [Voyager 1.3](https://github.com/the-control-group/voyager/tree/1.3)
 
-### Premium Partners
+## Installation Steps
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+### 1. Require the Package
 
-## Contributing
+After creating your new Laravel application you can include the Voyager package with the following command:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+composer require tcg/voyager
+```
 
-## Code of Conduct
+### 2. Add the DB Credentials & APP_URL
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Next make sure to create a new database and add your database credentials to your .env file:
 
-## Security Vulnerabilities
+```
+DB_HOST=localhost
+DB_DATABASE=homestead
+DB_USERNAME=homestead
+DB_PASSWORD=secret
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+You will also want to update your website URL inside of the `APP_URL` variable inside the .env file:
 
-## License
+```
+APP_URL=http://localhost:8000
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 3. Run The Installer
+
+Lastly, we can install voyager. You can do this either with or without dummy data.
+The dummy data will include 1 admin account (if no users already exists), 1 demo page, 4 demo posts, 2 categories and 7 settings.
+
+To install Voyager without dummy simply run
+
+```bash
+php artisan voyager:install
+```
+
+If you prefer installing it with dummy run
+
+```bash
+php artisan voyager:install --with-dummy
+```
+
+And we're all good to go!
+
+Start up a local development server with `php artisan serve` And, visit [http://localhost:8000/admin](http://localhost:8000/admin).
+
+## Creating an Admin User
+
+If you did go ahead with the dummy data, a user should have been created for you with the following login credentials:
+
+>**email:** `admin@admin.com`   
+>**password:** `password`
+
+NOTE: Please note that a dummy user is **only** created if there are no current users in your database.
+
+If you did not go with the dummy user, you may wish to assign admin privileges to an existing user.
+This can easily be done by running this command:
+
+```bash
+php artisan voyager:admin your@email.com
+```
+
+If you did not install the dummy data and you wish to create a new admin user you can pass the `--create` flag, like so:
+
+```bash
+php artisan voyager:admin your@email.com --create
+```
+
+And you will be prompted for the user's name and password.
