@@ -11,6 +11,7 @@
       <div class="card-body">
         <h4 class="card-title"> {{ $post->title }} </h4>
         <p class="card-text">{{ \Illuminate\Support\Str::limit($post->excerpt,200) }}</p>
+        <span class="badge badge-primary"> {{ $post->category->name }}</span>
       </div>
     </div>
     @endforeach

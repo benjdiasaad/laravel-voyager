@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
-use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Category extends Model
 {
     use HasFactory;
 
-    public function category(){
-        return $this->belongsTo(Category::Class);
+    public function posts(){
+        return $this->hasMany(Post::class);
     }
 }
