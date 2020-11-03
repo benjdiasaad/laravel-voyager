@@ -21,7 +21,10 @@
    <ul class="list-group">
    <li class="list-group-item @if(!$id) active @endif"> <a class="list-group-item-action" href="{{ url('/blog/') }}"> All </a></li>
      @foreach($mycategories as $category)
-       <li class="list-group-item @if($category->id == $id) active @endif"> <a class="list-group-item-action" href="{{ url('/blog/'.$category->id) }}"> {{ $category->name }} </a></li>
+     <li class="list-group-item d-flex justify-content-between align-items-center @if($category->id == $id) active @endif">
+     <a class="list-group-item-action" href="{{ url('/blog/'.$category->id) }}"> {{ $category->name }} </a>
+       <span class="badge badge-primary badge-pill">{{ $category->posts->count() }}</span>
+     </li>  
      @endforeach
    </ul>
   </div>
