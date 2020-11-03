@@ -14,8 +14,19 @@ class SiteController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at','asc')->take(6)->get();
+        $posts = Post::orderBy('created_at','asc')
+                      ->whereStatus('PUBLISHED')               
+                      ->take(6)
+                      ->get();
         return view('blog.index', ['myposts' => $posts]);
+    }
+
+    public function blog()
+    {
+        $posts = POST::orderBy('created_at','asc')
+        ->whereStatus('PUBLISHED')
+        ->paginate(3);
+        return view('blog.blog', ['myposts' => $posts]);
     }
 
 }

@@ -12,6 +12,9 @@
 
 
     @include('partials.navbar')
+
+    @yield('slider')
+
     <div class="container mt-4">
         @yield("content")
     </div>

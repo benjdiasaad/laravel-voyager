@@ -1,10 +1,8 @@
 @extends('master')
 
-@section('content')
-
-  <div class="row">
+@section('slider')
+ <div class="row">
     <div class="col-md-12">
-      <h1>  List of my posts </h1>
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
        <div class="carousel-inner">
 
@@ -27,6 +25,14 @@
     </div>            
    </div>
   </div>
+
+@endsection
+
+
+
+@section('content')
+
+ 
 
 
   <div class="row">
