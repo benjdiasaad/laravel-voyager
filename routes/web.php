@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', "SiteController@index");
-Route::get('/blog', "SiteController@blog");
+Route::get('/blog/{id?}', "SiteController@blog");
 
 
 Route::get('/contact', function () {

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
+use App\Models\Post, App\Models\Category;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
@@ -14,6 +14,8 @@ class SiteController extends Controller
      */
     public function index()
     {
+
+    
         $posts = Post::orderBy('created_at','asc')
                       ->whereStatus('PUBLISHED')               
                       ->take(6)
@@ -21,12 +23,25 @@ class SiteController extends Controller
         return view('blog.index', ['myposts' => $posts]);
     }
 
-    public function blog()
+    public function blog($id = null)
     {
-        $posts = POST::orderBy('created_at','asc')
+
+        if($id){
+            $posts = Post::orderBy('created_at','asc')
+                            ->whereStatus('PUBLISHED')               
+                            ->whereCategoryId($id)
+                            ->paginate(3); 
+            }else{
+                $posts = POST::orderBy('created_at','asc')
+                            ->whereStatus('PUBLISHED')
+                            ->paginate(3);        
+            }
+
+        /*$posts = POST::orderBy('created_at','asc')
         ->whereStatus('PUBLISHED')
-        ->paginate(3);
-        return view('blog.blog', ['myposts' => $posts]);
+        ->paginate(3);*/
+        $categories = Category::all();
+        return view('blog.blog', ['id'=> $id, 'myposts' => $posts, 'mycategories' => $categories]);
     }
 
 }

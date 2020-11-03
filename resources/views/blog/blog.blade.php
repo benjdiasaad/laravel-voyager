@@ -11,18 +11,27 @@
       <div class="card-body">
         <h4 class="card-title"> {{ $post->title }} </h4>
         <p class="card-text">{{ \Illuminate\Support\Str::limit($post->excerpt,200) }}</p>
-        <span class="badge badge-primary"> {{ $post->category->name }}</span>
+        <a href="{{ url('/blog/'.$post->category_id) }}"> <span class="badge badge-primary">{{ $post->category->name }} </span> </a>
       </div>
     </div>
     @endforeach
   </div>
   <div class="col-md-4">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam vitae saepe quis! Deserunt, excepturi laudantium repudiandae illo deleniti neque consequatur vitae optio in quibusdam ipsa ipsum, itaque nostrum recusandae. Assumenda!
+   <h2> our List of categories </h2>
+   <ul class="list-group">
+   <li class="list-group-item @if(!$id) active @endif"> <a class="list-group-item-action" href="{{ url('/blog/') }}"> All </a></li>
+     @foreach($mycategories as $category)
+       <li class="list-group-item @if($category->id == $id) active @endif"> <a class="list-group-item-action" href="{{ url('/blog/'.$category->id) }}"> {{ $category->name }} </a></li>
+     @endforeach
+   </ul>
   </div>
 
 
 </div>
-<div class="pagination">
-{{ $myposts->links() }}
-</div>
+  
+   <div class="pagination pagination-lg">
+     {{ $myposts->links() }}
+   </div>
+  
+
 @endsection
