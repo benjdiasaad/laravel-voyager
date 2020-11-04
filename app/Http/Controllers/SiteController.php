@@ -46,6 +46,9 @@ class SiteController extends Controller
 
     public function show($slug){
         $post = Post::whereSlug($slug)->first();
+        $post->nb_visite++;
+        $post->save();
+
         return view('blog.show', ['post' => $post]);
     }
 
