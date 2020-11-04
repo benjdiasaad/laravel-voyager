@@ -44,4 +44,9 @@ class SiteController extends Controller
         return view('blog.blog', ['id'=> $id, 'myposts' => $posts, 'mycategories' => $categories]);
     }
 
+    public function show($slug){
+        $post = Post::whereSlug($slug)->first();
+        return view('blog.show', ['post' => $post]);
+    }
+
 }
