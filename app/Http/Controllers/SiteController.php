@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post, App\Models\Category;
+use App\Models\Post, App\Models\Category, App\Contact;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
@@ -50,6 +50,20 @@ class SiteController extends Controller
         $post->save();
 
         return view('blog.show', ['post' => $post]);
+    }
+
+    public function store(Request $request){
+        //return $request->all();
+        $contact = new Contact();
+
+        $contact->objet = $request->input('object');
+        $contact->email = $request->input('email');
+        $contact->message = $request->input('message');
+
+        $contact->save();
+
+        return redirect('/contact')->with('success','This contact is saved');
+        
     }
 
 }
