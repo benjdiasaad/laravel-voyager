@@ -13,14 +13,14 @@
 @endif
 
 <div class="row">
-    <div class="col-md-3"> <h2> +212620669912 </h2> </div>
-    <div class="col-md-3"><h3> benjdiasaad97@gmail.com </h3> </div>
+    <div class="col-md-3"> <h2> {{ setting('contact.phone') }} </h2> </div>
+    <div class="col-md-3"><h3> {{setting('contact.email')}} </h3> </div>
     <div class="col-md-3"></div>
 </div>
 <br>
 <div class="row">
     <div class="col-md-6"> 
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53542.62313974921!2d-7.654678598754867!3d32.99286046213471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda6055da9429e99%3A0x3f8d5e95dedefa12!2sSettat!5e0!3m2!1sfr!2sma!4v1604595859299!5m2!1sfr!2sma" width="500" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        {!! setting('contact.map') !!}
     </div>
     <div class="col-md-6">
         <form action="{{ url('/contact') }}" method="POST">
